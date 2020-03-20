@@ -19,7 +19,7 @@ def compose_image(bg_local_path, fg_local_path, output):
 	h = int((bg_h - fg_h) / 2)
 	w = int((bg_w - fg_w) / 2)
 	bg.paste(fg, (h, w), fg)
-	bg.save(output, "JPEG", quality = 100, optimize = True, progressive = True)
+	bg.save(output, "PNG", quality = 100, optimize = True, progressive = True)
 
 def populate_list():
 	url = 'http://digital.100fm.co.il/ChannelList_Kodi.xml'
@@ -52,7 +52,7 @@ def populate_list():
 				raise
 
 		if got_pics:
-			img_local_path = root + '/channel_id' + str(img_counter) + '.jpg'
+			img_local_path = root + '/channel_id' + str(img_counter) + '.png'
 			img_counter += 1
 			compose_image(bg_local_path, fg_local_path, img_local_path)
 			if not default_pic:
